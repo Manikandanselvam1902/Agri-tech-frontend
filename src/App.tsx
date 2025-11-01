@@ -174,7 +174,15 @@ function App() {
       });
 
     } catch (error) {
-      console.error("Failed to send message:", error);
+      let detailedError = "Failed to send message. Please check the console for details.";
+      if (axios.isAxiosError(error)) {
+        if (error.response) {
+          detailedError = `Error: ${error.response.status} - ${error.response.statusText}. Check server logs.`;
+        } else if (error.request) {
+          detailedError = "Network error: No response received from server. Check API URL and server status.";
+        }
+      }
+      console.error("Failed to send message:", detailedError, error);
       const errorMessage: Message = { role: 'model', parts: [{ text: "⚠️ Sorry, something went wrong." }] };
       const finalMessages = [...updatedMessages, errorMessage];
       const finalConversation = { ...conversationToUpdate, messages: finalMessages };
