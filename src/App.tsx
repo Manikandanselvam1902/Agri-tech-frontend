@@ -154,7 +154,7 @@ function App() {
 
     try {
       // Call our backend API
-      const apiResponse = await axios.post(import.meta.env.VITE_API_URL, {
+      const apiResponse = await axios.post(`${import.meta.env.VITE_API_URL}/api/chat`, {
         history: apiHistory,
         message: prompt,
       });
