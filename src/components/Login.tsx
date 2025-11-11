@@ -14,7 +14,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
   // Predefined credentials
   const PREDEFINED_USERNAME = 'Mani1902';
   const PREDEFINED_EMAIL = '311522106060@gmail.com';
-  const PREDEFINED_PASSWORD = 'Lokraj@2004';
+  const PREDEFINED_PASSWORD = 'Mani@1902';
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
