@@ -1,0 +1,43 @@
+.weather-widget {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #e9f5e9; /* Light Green */
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  color: #283618; /* Dark Green Text */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  cursor: pointer; /* Added to indicate clickability */
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.weather-widget.error {
+  background-color: #fce8e8; /* Light red for error */
+  color: #d9534f; /* Darker red text */
+  border: 1px solid #d9534f;
+}
+
+.weather-icon {
+  width: 36px;
+  height: 36px;
+}
+
+.weather-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.weather-temp {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.weather-city {
+  font-size: 0.8em;
+  color: #606C38; /* Muted Green */
+}

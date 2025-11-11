@@ -2,12 +2,14 @@ import { useState, useEffect, useRef } from 'react';
 import type { FC } from 'react';
 import axios from 'axios';
 import { FilteredTextInput } from './components/FilteredTextinput';
+import './components/Weather.css';
 import Login from './components/Login';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import './App.css';
 
 // Define the structure for a message and the chat history
+import Weather from './components/Weather'; // Keep this import
 interface Message {
   role: 'user' | 'model';
   parts: { text: string }[];
@@ -21,7 +23,7 @@ interface Conversation {
 
 const UserIcon: FC = () => <div className="avatar-icon">Y</div>;
 const ModelIcon: FC = () => {
-  return <div className="avatar-icon model-icon">✨</div>;
+  return <div className="avatar-icon model-icon">🌱</div>;
 }
 
 const ChevronLeftIcon: FC = () => (
@@ -38,8 +40,8 @@ const ChevronRightIcon: FC = () => (
 
 const AppTitle: FC = () => (
   <div className="app-title-wrapper">
-    <div className="app-title">Mini Gemini chat</div>
-    <div className="app-subtitle">powered by Gemini 2.5 Flash lite</div>
+    <div className="app-title">Agri-Advisor</div>
+    <div className="app-subtitle">Your AI Farming Companion</div>
   </div>
 );
 
@@ -154,6 +156,7 @@ function App() {
 
     try {
       // Call our backend API
+      
       const apiResponse = await axios.post(`${import.meta.env.VITE_API_URL}/api/chat`, {
         history: apiHistory,
         message: prompt,
@@ -202,7 +205,7 @@ function App() {
           {isSidebarOpen ? <ChevronLeftIcon /> : <ChevronRightIcon />}
         </button>
         <button onClick={handleNewChat} className="new-chat-button">
-          + New Chat
+          + New Consultation
         </button>
         <nav className="conversation-history">
           {conversations.map(convo => (
@@ -216,12 +219,13 @@ function App() {
           ))}
         </nav>
         <div className="developer-credit">
-          Developed by N. Lokeshraj
+          Developed by Versatiles
         </div>
       </aside>
       <div className="chat-container">
         <header className="chat-header">
           <AppTitle />
+          <Weather />
         </header>
         <main className="chat-history">
           {history.map((msg, index) => (

@@ -7,7 +7,7 @@
 
 .sidebar {
   width: 280px;
-  background-color: #202123;
+  background-color: #386641; /* Dark Green */
   color: white;
   display: flex;
   flex-direction: column;
@@ -23,9 +23,9 @@
   transform: translateY(-50%);
   width: 28px;
   height: 28px;
-  background-color: #2a2b2f;
+  background-color: #6A994E; /* Lighter Green */
   color: white;
-  border: 1px solid #444;
+  border: 1px solid #A7C957; /* Accent Green */
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -38,11 +38,11 @@
 }
 
 .sidebar-toggle-button:hover {
-  background-color: #4a4b52;
+  background-color: #A7C957; /* Accent Green */
 }
 
 .new-chat-button {
-  background-color: transparent;
+  background-color: #6A994E; /* Lighter Green */
   border: 1px solid #555;
   color: white;
   padding: 10px;
@@ -51,7 +51,11 @@
   text-align: left;
   margin-bottom: 20px;
   font-size: 0.95em;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.new-chat-button:hover {
+  background-color: #A7C957;
 }
 
 .app-layout.sidebar-closed .sidebar {
@@ -69,7 +73,7 @@
 .chat-container {
   width: 100%;
   height: 100vh; /* Take full height of the viewport */
-  background-color: #ffffff;
+  background-color: #FCF8F3; /* Light Beige */
   border-radius: 0; /* Remove radius for a more seamless look */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -80,17 +84,18 @@
 
 .chat-header {
   padding: 12px 20px;
-  background-color: #ffffff;
+  background-color: #FCF8F3; /* Light Beige */
   border-bottom: 1px solid #e0e0e0;
   display: flex;
   align-items: center;
   justify-content: center; /* Center the title */
+  position: relative; /* For positioning the weather widget */
 }
 
 .app-title {
   font-size: 1.1em;
   font-weight: 500;
-  color: #333;
+  color: #283618; /* Darker Green for text */
 }
 
 .app-title-wrapper {
@@ -101,7 +106,7 @@
 
 .app-subtitle {
   font-size: 0.8em;
-  color: #666;
+  color: #606C38; /* Muted Green */
   margin-top: 2px;
 }
 
@@ -113,7 +118,7 @@
   flex-direction: column;
   gap: 24px;
   scrollbar-width: thin;
-  scrollbar-color: #c1c1c1 #f1f1f1;
+  scrollbar-color: #A7C957 #E9F5E9; /* Accent Green on Light Green */
 }
 
 /* Custom scrollbar for main chat history */
@@ -122,10 +127,10 @@
 }
 
 .chat-history::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #E9F5E9; /* Light Green */
 }
 .chat-history::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
+  background: #A7C957; /* Accent Green */
   border-radius: 4px;
 }
 
@@ -133,7 +138,7 @@
   flex-grow: 1;
   overflow-y: auto;
   direction: rtl; /* Move scrollbar to the left */
-  scrollbar-width: thin;
+  scrollbar-width: thin; /* Firefox */
   scrollbar-color: #fffefe #074bd2;
   padding-left: 8px; /* space for scrollbar */
 }
@@ -144,11 +149,11 @@
 }
 
 .conversation-history::-webkit-scrollbar-track {
-  background: #202123;
+  background: #386641; /* Dark Green */
 }
 
 .conversation-history::-webkit-scrollbar-thumb {
-  background-color: #555;
+  background-color: #A7C957; /* Accent Green */
   border-radius: 3px;
 }
 
@@ -163,7 +168,7 @@
 }
 
 .conversation-item:hover, .conversation-item.active {
-  background-color: #343541;
+  background-color: #283618; /* Darker Green */
 }
 
 .developer-credit {
@@ -194,7 +199,7 @@
 }
 
 .message-wrapper.user .avatar {
-  background-color: #7a5af8;
+  background-color: #BC6C25; /* Terracotta/Brown */
   color: white;
 }
 
@@ -214,15 +219,15 @@
 }
 
 .message-wrapper.user .message-bubble {
-  background-color: #f0f2f5;
-  color: #1c1c1e;
+  background-color: #E9F5E9; /* Light Green */
+  color: #283618; /* Dark Green Text */
   border-top-right-radius: 5px;
 }
 
 .message-wrapper.model .message-bubble {
   background-color: #f9f9f9;
   color: #1c1c1e;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #DDE5B6; /* Light green border */
   border-top-left-radius: 5px;
 }
 
@@ -268,8 +273,8 @@
 
 .chat-input-area {
   padding: 20px;
-  border-top: 1px solid #ddd;
-  background-color: #f7f7f8;
+  border-top: 1px solid #DDE5B6; /* Light green border */
+  background-color: #F0EAD2; /* Lighter Beige */
 }
 
 /* Thinking indicator */
