@@ -1,11 +1,11 @@
-import React, { useRef } from "react";
+import React, { useRef, memo } from "react";
 
 interface FilteredTextInputProps {
   onSend: (text: string) => void;
   disabled: boolean;
 }
 
-export const FilteredTextInput: React.FC<FilteredTextInputProps> = ({ onSend, disabled }) => {
+const FilteredTextInputComponent: React.FC<FilteredTextInputProps> = ({ onSend, disabled }) => {
   const editorRef = useRef<HTMLDivElement>(null);
 
   const processText = () => {
@@ -85,3 +85,5 @@ export const FilteredTextInput: React.FC<FilteredTextInputProps> = ({ onSend, di
     </div>
   );
 };
+
+export const FilteredTextInput = memo(FilteredTextInputComponent);
