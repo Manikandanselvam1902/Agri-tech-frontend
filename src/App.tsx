@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import type { FC } from 'react';
 import axios from 'axios';
 import { FilteredTextInput } from './components/FilteredTextinput';
@@ -101,7 +101,7 @@ function App() {
   const currentConversation = conversations.find(c => c.id === currentConversationId);
   const history = currentConversation ? currentConversation.messages : [];
 
-  const handleSend = async (prompt: string) => {
+  const handleSend = useCallback(async (prompt: string) => {
     if (!prompt || isLoading) return;
 
     setIsLoading(true);
@@ -193,7 +193,7 @@ function App() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [isLoading, currentConversationId, conversations]);
 
   if (!isAuthenticated) {
     return <Login onLoginSuccess={() => setIsAuthenticated(true)} />;
